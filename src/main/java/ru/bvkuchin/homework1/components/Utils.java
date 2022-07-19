@@ -3,7 +3,6 @@ package ru.bvkuchin.homework1.components;
 import ru.bvkuchin.homework1.exceptions.IncorrectIndexExceptions;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class Utils {
     public static <T> void switchElements(T[] array, int i, int j) throws IncorrectIndexExceptions {

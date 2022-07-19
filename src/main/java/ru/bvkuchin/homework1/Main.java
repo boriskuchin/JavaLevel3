@@ -1,17 +1,51 @@
 package ru.bvkuchin.homework1;
 
+import ru.bvkuchin.homework1.components.Box;
 import ru.bvkuchin.homework1.components.Utils;
+import ru.bvkuchin.homework1.components.fruits.Apple;
+import ru.bvkuchin.homework1.components.fruits.Orange;
 import ru.bvkuchin.homework1.exceptions.IncorrectIndexExceptions;
 
 import java.util.Arrays;
-import java.util.Collections;
 
 public class Main {
     public static void main(String[] args) {
         testswitchElements();
         testArrayToArrayList();
+        testFruitBox();
     }
 
+    private static void testFruitBox() {
+        System.out.println("**************************Задание 3**************************");
+        Box<Apple> appleBox1 = new Box<>();
+        Box<Orange> orangeBox1 = new Box<>();
+
+        appleBox1.addFruit(new Apple());
+        appleBox1.addFruit(new Apple());
+        appleBox1.addFruit(new Apple());
+        appleBox1.addFruit(new Apple());
+        appleBox1.addFruit(new Apple());
+
+        orangeBox1.addFruit(new Orange());
+        orangeBox1.addFruit(new Orange());
+        orangeBox1.addFruit(new Orange());
+        orangeBox1.addFruit(new Orange());
+
+        System.out.println("Вес ящика с яблоками #1: " + appleBox1.getWeight());
+        System.out.println("Вес ящика с апельсинами#1: " + orangeBox1.getWeight());
+        System.out.println("Вес ящиков одинаковый? " + orangeBox1.compare(appleBox1));
+
+        Box<Apple> appleBox2 = new Box<>();
+
+        appleBox2.addFruit(new Apple());
+        System.out.println("Вес ящика с яблоками #2: " + appleBox2.getWeight());
+        System.out.println("Пересыпаем яблоки из ящика №1 в ящик №2");
+        appleBox1.transfer(appleBox2);
+        System.out.println("Вес ящика с яблоками #1 после пересыпания: " + appleBox1.getWeight());
+        System.out.println("Вес ящика с яблоками #2 после пересыпания: " + appleBox2.getWeight());
+        System.out.println("Теперь вес заполненных ящиков одинаковый? " + orangeBox1.compare(appleBox2));
+
+    }
 
 
     private static void testswitchElements() {
@@ -57,6 +91,6 @@ public class Main {
         System.out.println(Utils.<String>arrayToArrayList(str).getClass().getSimpleName() + ": " + Utils.<String>arrayToArrayList(str).toString());
         System.out.println(Utils.<Integer>arrayToArrayList(integers).getClass().getSimpleName() + ": " +Utils.<Integer>arrayToArrayList(integers));
         System.out.println(Utils.<Exception>arrayToArrayList(exceptions).getClass().getSimpleName() + ": " +Utils.<Exception>arrayToArrayList(exceptions));
-
+        System.out.println();
     }
 }
